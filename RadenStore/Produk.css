@@ -1,0 +1,362 @@
+/* ============ Global Styles ============ */
+:root 
+{
+    --color-gold: #d4af37;
+    --color-dark: #333;
+    --color-dark-bg: #111; /* Background pop-up lebih gelap */
+    --color-light-bg: #f5f5f5;
+    --font-main: 'Poppins', sans-serif;
+}
+
+body 
+{
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    background: var(--color-dark); /* Background gelap */
+    color: white; /* Warna teks putih untuk kontras */
+}
+
+/* ============ Container ============ */
+.container 
+{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    gap: 20px;
+}
+
+/* ============ Gallery & Slider ============ */
+.gallery 
+{
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.slider
+{
+    position: relative;
+}
+
+.slider img 
+{
+    width: 100%;
+    display: none;
+    border-radius: 8px;
+}
+
+.slider img.active 
+{
+    display: block;
+}
+
+.slider button
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--color-gold);
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.slider .prev
+{
+    left: 10px;
+}
+
+.slider .next 
+{
+    right: 10px;
+}
+
+.slider button:hover 
+{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* ============ Product Details ============ */
+.details 
+{
+    flex: 1 1 300px;
+    padding: 10px;
+}
+
+.details h1 
+{
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: white; /* Teks putih untuk kontras dengan background gelap */
+}
+
+.details p
+{
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.price 
+{
+    display: block;
+    font-size: 1.5em;
+    color: var(--color-gold);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ============ Buttons ============ */
+.actions button 
+{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.buy 
+{
+    background: var(--color-gold);
+    color: white;
+}
+
+.cart 
+{
+    background: var(--color-dark);
+    color: white;
+}
+
+.actions button:hover 
+{
+    opacity: 0.8;
+}
+
+.social-link 
+{
+    text-decoration: none;  /* Menghilangkan garis bawah */
+    color: var(--color-gold); /* Warna gold */
+    font-weight: bold;
+}
+
+.social-link:link,
+.social-link:visited,
+.social-link:active 
+{
+    color: var(--color-gold);  /* Pastikan warna tetap gold */
+}
+
+.social-link:hover 
+{
+    color: white;  /* Ubah warna saat hover */
+    text-decoration: none; /* Menghilangkan garis bawah saat hover */
+}
+
+/* ============ Popup ============ */
+.popup 
+{
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Background gelap */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup form 
+{
+    background: var(--color-dark-bg); /* Background gelap untuk pop-up */
+    padding: 25px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;  /* Lebar maksimal form */
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Bayangan halus */
+}
+
+/* ============ Form Layout: 2 Columns ============ */
+.popup form .form-grid 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dua kolom */
+    gap: 15px;
+    align-items: center;
+}
+
+.popup form .form-grid label 
+{
+    margin-top: 5px;
+    font-size: 0.95em;
+}
+
+.popup form input,
+.popup form select 
+{
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #222;
+    color: white;
+    font-family: var(--font-main);
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.popup form input:focus,
+.popup form select:focus 
+{
+    border-color: var(--color-gold); /* Fokus dengan border gold */
+    outline: none;
+}
+
+/* ============ Form Buttons ============ */
+.popup .form-actions 
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.popup .form-actions button 
+{
+    flex: 1;
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--color-gold);
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.popup .form-actions button:last-child 
+{
+    background-color: #555;
+}
+
+.popup .form-actions button:hover 
+{
+    opacity: 0.85;
+}
+
+.popup .close-btn 
+{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+}
+
+/* ============ Resi Container (di produk.php) ============ */
+.receipt 
+{
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: none;
+}
+
+/* ============ Product Link Style (No Underline) ============ */
+.product a 
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+.product a:hover 
+{
+    color: var(--color-gold);
+}
+
+/* ============ Responsive Design ============ */
+@media screen and (max-width: 768px) 
+{
+    .container 
+    {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .details 
+    {
+        flex: 1 1 100%;
+    }
+
+    .actions button 
+    {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .slider button 
+    {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+
+    .popup form
+    {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) 
+{
+    .container 
+    {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .slider button 
+    {
+        font-size: 1.2rem;
+        padding: 6px;
+    }
+
+    .popup form 
+    {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .popup button 
+    {
+        padding: 8px 12px;
+    }
+
+    .actions button 
+    {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
